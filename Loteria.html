@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    padding: 2rem;
+}
+
+button.btn-primary {
+    background-color: #249CAE;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button.btn-primary:hover {
+    background-color: #10626e;
+    transform: scale(1.05);
+}
+
+.carta {
+    width: 100%;
+    aspect-ratio: 2/3;
+    margin-top: 2%;
+    border: 2px solid #249CAE;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carta:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.prev {
+    width: 40%;
+    aspect-ratio: 2/3;
+    margin-top: 2%;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.prev:hover {
+    transform: scale(1.03);
+}
+
+#son {
+    width: 15%;
+    aspect-ratio: 1/1;
+    margin-top: 2%;
+    transition: transform 0.3s ease;
+}
+
+#son:hover {
+    transform: rotate(20deg);
+}
+
+.numero {
+    width: 30%;
+    padding: 0.5rem;
+    border: 1px solid #249CAE;
+    border-radius: 0.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.numero:focus {
+    border-color: #10626e;
+    outline: none;
+}
+
+.row {
+    margin-bottom: 2rem;
+}
+
+#main_area {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+  #son.playing {
+    transform: rotate(20deg); /* Rotación cuando el sonido se reproduce */
+    transition: transform 0.3s ease; /* Efecto de transición suave */
+}
+</style>
+</head>
+
+<style>
+  .carta{
+    width: 100%;
+    aspect-ratio: 2/3;
+    margin-top: 5%;
+    border: 1px solid black
+  }
+
+  .prev{
+    width: 40%;
+    aspect-ratio: 2/3;
+    margin-top: 10%;
+  }
+
+  #son{
+    width: 15%;
+    aspect-ratio: 1/1;
+  }
+
+  .numero{
+    width: 30%;
+  }
+</style>
+
+
+<body>
+    <!------------------------------->
+    
+    <div class="container">
+      <div id="main_area">
+          <!-- Slider -->
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="row justify-content-center">
+                  <button onclick="cartas()" type="button" class="btn btn-primary">Nueva carta</button>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-3"><img src="#" alt="" class="carta" id="c1" onclick="seleccionar(1)"></div>
+                  <div class="col-sm-3"><img src="#" alt="" class="carta" id="c2" onclick="seleccionar(2)"></div>
+                  <div class="col-sm-3"><img src="#" alt="" class="carta" id="c3" onclick="seleccionar(3)"></div>
+                  <div class="col-sm-3"><img src="#" alt="" class="carta" id="c4" onclick="seleccionar(4)"></div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-sm-3"><img src="#" alt="" class="carta" id="c5" onclick="seleccionar(5)"></div>
+                  <div class="col-sm-3"><img src="#" alt="" class="carta" id="c6" onclick="seleccionar(6)"></div>
+                  <div class="col-sm-3"><img src="#" alt="" class="carta" id="c7" onclick="seleccionar(7)"></div>
+                  <div class="col-sm-3"><img src="#" alt="" class="carta" id="c8" onclick="seleccionar(8)"></div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-sm-3"><img src="#" alt="" class="carta" id="c9" onclick="seleccionar(9)"></div>
+                  <div class="col-sm-3"><img src="#" alt="" class="carta" id="c10" onclick="seleccionar(10)"></div>
+                  <div class="col-sm-3"><img src="#" alt="" class="carta" id="c11" onclick="seleccionar(11)"></div>
+                  <div class="col-sm-3"><img src="#" alt="" class="carta" id="c12" onclick="seleccionar(12)"></div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="row justify-content-center">
+                  <img src="../img/6.jpg" class="prev" id="prev">
+                </div>
+                <div class="row justify-content-center">
+                  <img src="../img/sonido.png" id="son">
+                </div>
+                <div class="row justify-content-center">
+                  <button onclick="consultar()" type="button" class="btn btn-primary">Consultar</button>
+                </div>
+                <div class="row justify-content-center">
+                  <input type="number" id="i1" class="numero" min="0" max="3" value="0">
+                  <input type="number" id="i2" class="numero" min="0" max="3" value="0">
+                </div>
+              </div>
+            </div>
+      </div>
+      <button onclick="location.href='../index.html'" class="btn btn-primary">Regresar al Home</button>
+  </div>
+    <!-- Page Content -->
+<script>
+function seleccionar(cartaId) {
+    // Directamente asignamos valores según la carta seleccionada
+    let num1 = Math.floor((cartaId - 1) / 4); // Se calcula un valor de 0 a 2 para el primer input
+    let num2 = (cartaId - 1) % 4;             // Se calcula un valor de 0 a 3 para el segundo input
+
+    document.getElementById('i1').value = num1;
+    document.getElementById('i2').value = num2;
+}
+
+function consultar() {
+    let sound = new Audio('../audio/sound.mp3'); // Asegúrate de que la ruta del audio sea correcta
+    
+    sound.onplay = function() {
+        document.getElementById('son').classList.add('playing'); // Añadir clase cuando empieza a reproducirse
+    };
+
+    sound.onended = function() {
+        document.getElementById('son').classList.remove('playing'); // Quitar clase cuando termina
+    };
+    
+    sound.play(); // Reproducir el sonido
+}
+</script>
+</body>
+</html>
+
+<script src="../js/carta.js"></script>
+
+

@@ -1,0 +1,86 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #acb7b9;
+    font-family: 'Roboto', sans-serif;
+}
+
+.menu{
+    background-color: #1abc9c;
+}
+
+.bandera {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    max-height: 200%;
+}
+
+.imagen_banner {
+    max-height: 100%  ;
+    transform: rotate(90deg);
+    margin-top: 12rem;
+    border-radius: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nom_juego {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #249CAE;
+    margin-bottom: 1rem;
+}
+
+.reglas_juego {
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+
+.juego {
+    background-color: #fff;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.juego:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.primero {
+    margin-top: 3rem;
+}
+
+.segundo {
+    margin-top: 2.5rem;
+}
+
+.btn_pruebalo {
+    font-weight: 400;
+    font-size: .9rem;
+    margin: 0.5rem 0;
+    text-align: center;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 2rem;
+    background-color: #249CAE;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bg-tertiary{
+    background-color: #6c757d;
+}
